@@ -5,6 +5,11 @@ set GIT_MERGE_AUTOEDIT=no
 git fetch origin || exit 1
 git reset --hard origin/master || exit 1
 
+@REM Ensure that this script exists.
+git remote add siliconspecter https://github.com/siliconspecter/godot
+git fetch siliconspecter || exit 1
+git merge siliconspecter/customizations || exit 1
+
 @REM Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
