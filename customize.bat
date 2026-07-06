@@ -1,14 +1,15 @@
 @REM Don't interrupt the script to ask for comments.
 set GIT_MERGE_AUTOEDIT=no
 
-@REM Delete all local changes and update to the latest development version of Godot.
-git fetch origin || exit 1
-git reset --hard origin/master || exit 1
-
-@REM Ensure that this script exists.
+@REM Delete all local changes.
 git remote add siliconspecter https://github.com/siliconspecter/godot
 git fetch siliconspecter || exit 1
-git merge siliconspecter/customizations || exit 1
+git reset --hard siliconspecter/customizations || exit 1
+
+@REM Apply latest updates.
+git remote add godotengine https://github.com/godotengine/godot
+git fetch godotengine || exit 1
+git merge godotengine/master || exit 1
 
 @REM Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
