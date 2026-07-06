@@ -30,3 +30,6 @@ scons target=template_release || exit 1
 @REM Copy the build templates to where the editor can find them.
 copy /b/v/y bin\godot.windows.template_release.x86_64.exe %APPDATA%\Godot\export_templates\4.8.dev\windows_release_x86_64.exe || exit 1
 copy /b/v/y bin\godot.windows.template_release.x86_64.console.exe %APPDATA%\Godot\export_templates\4.8.dev\windows_release_x86_64_console.exe || exit 1
+
+@REM Undo all changes so if we need to make more script changes we don't have the commits we just merged.
+git reset --hard siliconspecter/customizations || exit 1
