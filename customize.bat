@@ -28,6 +28,7 @@ scons || exit 1
 scons target=template_release || exit 1
 
 @REM Copy the build templates to where the editor can find them.
+mkdir %APPDATA%\Godot\export_templates\4.8.dev
 copy /b/v/y bin\godot.windows.template_release.x86_64.exe %APPDATA%\Godot\export_templates\4.8.dev\windows_release_x86_64.exe || exit 1
 copy /b/v/y bin\godot.windows.template_release.x86_64.console.exe %APPDATA%\Godot\export_templates\4.8.dev\windows_release_x86_64_console.exe || exit 1
 
