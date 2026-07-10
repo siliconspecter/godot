@@ -25,7 +25,7 @@ scons || exit 1
 scons target=template_release || exit 1
 
 # Copy the build templates to where the editor can find them.
-mkdir -p %APPDATA%\Godot\export_templates\4.8.dev
+mkdir -p ~/.local/share/godot/export_templates/4.8.dev
 cp bin/godot.linux.template_release.x86_64.exe ~/.local/share/godot/export_templates/4.8.dev/linux_release_x86_64.exe || exit 1
 cp bin/godot.linux.template_release.x86_64.console.exe ~/.local/share/godot/export_templates/4.8.dev/linux_release_x86_64_console.exe || exit 1
 
