@@ -8,6 +8,9 @@ git remote add godotengine https://github.com/godotengine/godot
 git fetch godotengine || exit 1
 GIT_MERGE_AUTOEDIT=no git merge godotengine/master || exit 1
 
+# Add some missing LightmapGIData methods.
+GIT_MERGE_AUTOEDIT=no git merge siliconspecter/expose-lightmap-gi-data-functions-to-gdscript || exit 1
+
 # Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
