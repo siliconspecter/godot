@@ -17,20 +17,13 @@ git merge siliconspecter/expose-lightmap-gi-data-functions-to-gdscript || exit 1
 @REM Fix the compatability renderer discard the G and B components of non-float custom colors.
 git merge siliconspecter/fix/compatability-non-float-custom-attributes || exit 1
 
+@REM Add multiple features which conflict.
+git merge siliconspecter/lightmap-gi-features || exit 1
+
 @REM Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
 git merge shiena/feature/support-windows-camera || exit 1
-
-@REM Add a script method so that we can automatically bake lighting.
-git remote add vsekai https://github.com/V-Sekai/godot
-git fetch vsekai || exit 1
-git merge vsekai/expose_bake_lightmap || exit 1
-
-@REM Add support for cull masks in LightmapGI.
-git remote add oblepikha https://github.com/oblepikha/godot
-git fetch oblepikha || exit 1
-git merge oblepikha/lightmapgi-cull-mask || exit 1
 
 @REM Build the editor.
 scons || exit 1
