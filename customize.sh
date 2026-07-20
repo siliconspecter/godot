@@ -25,7 +25,7 @@ git fetch vsekai || exit 1
 GIT_MERGE_AUTOEDIT=no git merge vsekai/expose_bake_lightmap || exit 1
 
 # Add support for cull masks in LightmapGI.
-git remote add vsekai https://github.com/oblepikha/godot
+git remote add oblepikha https://github.com/oblepikha/godot
 git fetch oblepikha || exit 1
 GIT_MERGE_AUTOEDIT=no git merge oblepikha/lightmapgi-cull-mask || exit 1
 
