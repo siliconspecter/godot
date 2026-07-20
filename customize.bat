@@ -27,6 +27,11 @@ git remote add vsekai https://github.com/V-Sekai/godot
 git fetch vsekai || exit 1
 git merge vsekai/expose_bake_lightmap || exit 1
 
+@REM Add support for cull masks in LightmapGI.
+git remote add vsekai https://github.com/oblepikha/godot
+git fetch oblepikha || exit 1
+git merge oblepikha/lightmapgi-cull-mask || exit 1
+
 @REM Build the editor.
 scons || exit 1
 
