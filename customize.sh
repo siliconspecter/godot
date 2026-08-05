@@ -11,9 +11,6 @@ GIT_MERGE_AUTOEDIT=no git merge godotengine/master || exit 1
 # Add some missing LightmapGIData methods.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/expose-lightmap-gi-data-functions-to-gdscript || exit 1
 
-# Fix the compatability renderer discard the G and B components of non-float custom colors.
-GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix/compatability-non-float-custom-attributes || exit 1
-
 # Add multiple features which conflict.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/lightmap-gi-features || exit 1
 

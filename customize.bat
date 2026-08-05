@@ -14,9 +14,6 @@ git merge godotengine/master || exit 1
 @REM Add some missing LightmapGIData methods.
 git merge siliconspecter/expose-lightmap-gi-data-functions-to-gdscript || exit 1
 
-@REM Fix the compatability renderer discard the G and B components of non-float custom colors.
-git merge siliconspecter/fix/compatability-non-float-custom-attributes || exit 1
-
 @REM Add multiple features which conflict.
 git merge siliconspecter/lightmap-gi-features || exit 1
 
