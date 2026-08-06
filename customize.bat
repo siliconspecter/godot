@@ -22,6 +22,11 @@ git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
 git merge shiena/feature/support-windows-camera || exit 1
 
+@REM Add support for webcams on Windows.
+git remote add vgc12 https://github.com/vgc12/godot
+git fetch vgc12 || exit 1
+git merge vgc12/fix-compressed-mesh-no-normals || exit 1
+
 @REM Build the editor.
 scons || exit 1
 
