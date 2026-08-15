@@ -24,6 +24,11 @@ git remote add vgc12 https://github.com/vgc12/godot
 git fetch vgc12 || exit 1
 GIT_MERGE_AUTOEDIT=no git merge vgc12/fix-compressed-mesh-no-normals || exit 1
 
+# Fix a lot of errors in the console.
+git remote add cixil https://github.com/cixil/godot
+git fetch cixil || exit 1
+GIT_MERGE_AUTOEDIT=no git merge cixil/avoid-saving-connections-twice || exit 1
+
 # Build the editor.
 scons || exit 1
 
