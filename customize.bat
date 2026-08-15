@@ -22,11 +22,6 @@ git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
 git merge shiena/feature/support-windows-camera || exit 1
 
-@REM Fix a spurious console warning.
-git remote add vgc12 https://github.com/vgc12/godot
-git fetch vgc12 || exit 1
-git merge vgc12/fix-compressed-mesh-no-normals || exit 1
-
 @REM Fix a lot of errors in the console.
 git remote add cixil https://github.com/cixil/godot
 git fetch cixil || exit 1
