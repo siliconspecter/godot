@@ -20,9 +20,6 @@ git merge siliconspecter/lightmap-gi-features || exit 1
 @REM Fix depth-draw-never being broken.
 git merge siliconspecter/test-depth-draw-never-fix || exit 1
 
-@REM Fix depth test off being broken.
-git merge siliconspecter/fix-opaque-depth-test-compatability || exit 1
-
 @REM Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
