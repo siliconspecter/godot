@@ -17,6 +17,9 @@ GIT_MERGE_AUTOEDIT=no git merge siliconspecter/lightmap-gi-features || exit 1
 # Fix depth-draw-never being broken.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/test-depth-draw-never-fix || exit 1
 
+# Fix depth test off being broken.
+GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-opaque-depth-test-compatability || exit 1
+
 # Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
