@@ -39,7 +39,7 @@ git merge cixil/avoid-saving-connections-twice || exit 1
 scons || exit 1
 
 @REM Build templates needed to export.
-scons target=template_release || exit 1
+scons target=template_release build_feature_profile="../carpathia/engine_compilation_profile.gdbuild" || exit 1
 
 @REM Copy the build templates to where the editor can find them.
 mkdir %APPDATA%\Godot\export_templates\4.8.dev
