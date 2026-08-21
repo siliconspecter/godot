@@ -40,6 +40,7 @@
 #include "scene/main/scene_tree.h"
 #include "scene/main/window.h"
 #include "scene/theme/theme_db.h"
+#include "servers/audio/audio_driver.h"
 #include "servers/audio/audio_server.h"
 #include "servers/display/accessibility_server.h"
 #include "servers/rendering/rendering_server.h"
@@ -175,7 +176,7 @@ struct GodotTestCaseListener : public doctest::IReporter {
 		reinitialize();
 
 		String name = String(p_in.m_name);
-		String suite_name = String(p_in.m_test_suite);
+		[[maybe_unused]] String suite_name = String(p_in.m_test_suite);
 
 		if (name.contains("[SceneTree]") || name.contains("[Editor]")) {
 			memnew(Input);

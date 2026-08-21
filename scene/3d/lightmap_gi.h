@@ -140,6 +140,8 @@ public:
 	void clear_shadowmask_textures();
 	bool has_shadowmask_textures();
 
+	void update_specular_intensity(float p_intensity);
+
 	virtual RID get_rid() const override;
 	LightmapGIData();
 	~LightmapGIData();
@@ -209,6 +211,8 @@ private:
 	GenerateProbes gen_probes = GENERATE_PROBES_SUBDIV_8;
 	Ref<CameraAttributes> camera_attributes;
 	uint32_t cull_mask = 0xfffff;
+
+	float specular_intensity = 0.0f;
 
 	Ref<LightmapGIData> light_data;
 	Node *last_owner = nullptr;
@@ -351,11 +355,16 @@ public:
 	void set_camera_attributes(const Ref<CameraAttributes> &p_camera_attributes);
 	Ref<CameraAttributes> get_camera_attributes() const;
 
+
 	void set_cull_mask(uint32_t p_mask);
 	uint32_t get_cull_mask() const;
 
 	void set_cull_mask_value(int p_layer_number, bool p_enable);
 	bool get_cull_mask_value(int p_layer_number) const;
+
+	float get_specular_intensity() const;
+	void set_specular_intensity(float p_strength);
+
 
 	AABB get_aabb() const override;
 
