@@ -41,8 +41,7 @@ scons target=template_release lto=full build_profile="../carpathia/engine_compil
 
 # Copy the build templates to where the editor can find them.
 mkdir -p ~/.local/share/godot/export_templates/4.8.dev
-cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/linux_release_x86_64 || exit 1
-cp bin/godot.linuxbsd.template_release.x86_64.console ~/.local/share/godot/export_templates/4.8.dev/linux_release_x86_64_console || exit 1
+cp bin/godot.linuxbsd.template_release.x86_64 e/linux_release_x86_64 || exit 1
 
 # Undo all changes so if we need to make more script changes we don't have the commits we just merged.
 git reset --hard siliconspecter/customizations || exit 1
