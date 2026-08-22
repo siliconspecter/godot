@@ -39,6 +39,7 @@ git merge cixil/avoid-saving-connections-twice || exit 1
 scons || exit 1
 
 @REM Build templates needed to export.
+set /p SCRIPT_AES256_ENCRYPTION_KEY=<../carpathia/godot.gdkey
 scons target=template_release lto=full build_profile="../carpathia/engine_compilation_profile.gdbuild" || exit 1
 
 @REM Copy the build templates to where the editor can find them.
