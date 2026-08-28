@@ -38,6 +38,14 @@ git merge cixil/avoid-saving-connections-twice || exit 1
 @REM Build the editor.
 scons || exit 1
 
+@REM Build templates needed to export Virtual Stage.
+scons target=template_release lto=full || exit 1
+
+@REM Copy the build templates to where the editor can find them.
+mkdir %APPDATA%\Godot\export_templates\4.8.dev
+copy /b/v/y bin\godot.windows.template_release.x86_64.exe %APPDATA%\Godot\export_templates\4.8.dev\virtual_stage_windows_release_x86_64.exe || exit 1
+copy /b/v/y bin\godot.windows.template_release.x86_64.console.exe %APPDATA%\Godot\export_templates\4.8.dev\virtual_stage_windows_release_x86_64_console.exe || exit 1
+
 @REM Build templates needed to export.
 set /p SCRIPT_AES256_ENCRYPTION_KEY=<../carpathia/godot.gdkey
 scons target=template_release lto=full build_profile="../carpathia/engine_compilation_profile.gdbuild" || exit 1
