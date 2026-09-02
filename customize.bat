@@ -17,6 +17,9 @@ git merge siliconspecter/expose-lightmap-gi-data-functions-to-gdscript || exit 1
 @REM Add multiple features which conflict.
 git merge siliconspecter/lightmap-gi-features || exit 1
 
+@REM Workaround for splitscreen focus.
+git merge siliconspecter/viewport-focus || exit 1
+
 @REM Fix depth-draw-never being broken.
 git merge siliconspecter/test-depth-draw-never-fix || exit 1
 
