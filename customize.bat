@@ -20,6 +20,9 @@ git merge siliconspecter/lightmap-gi-features || exit 1
 @REM Workaround for splitscreen focus.
 git merge siliconspecter/viewport-focus || exit 1
 
+@REM Fix broken build.
+git merge siliconspecter/fix-renderingdevice-build-error || exit 1
+
 @REM Fix depth-draw-never being broken.
 git merge siliconspecter/test-depth-draw-never-fix || exit 1
 

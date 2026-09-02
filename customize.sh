@@ -17,6 +17,9 @@ GIT_MERGE_AUTOEDIT=no git merge siliconspecter/lightmap-gi-features || exit 1
 # Workaround for splitscreen focus.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/viewport-focus || exit 1
 
+# Fix broken build.
+GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-renderingdevice-build-error || exit 1
+
 # Fix depth-draw-never being broken.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/test-depth-draw-never-fix || exit 1
 
