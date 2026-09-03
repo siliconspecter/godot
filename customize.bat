@@ -23,7 +23,8 @@ git merge siliconspecter/viewport-focus || exit 1
 @REM Fix broken build.
 git merge siliconspecter/fix-renderingdevice-build-error || exit 1
 
-@REM Fix depth-draw-never being broken.
+@REM Fix a number of issues with depth buffer flags.
+git merge siliconspecter/fix-depth-write-being-ignored-when-depth-test-is-disabled || exit 1
 git merge siliconspecter/test-depth-draw-never-fix || exit 1
 
 @REM Add support for webcams on Windows.

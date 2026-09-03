@@ -20,7 +20,8 @@ GIT_MERGE_AUTOEDIT=no git merge siliconspecter/viewport-focus || exit 1
 # Fix broken build.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-renderingdevice-build-error || exit 1
 
-# Fix depth-draw-never being broken.
+# Fix a number of issues with depth buffer flags.
+GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-depth-write-being-ignored-when-depth-test-is-disabled || exit 1
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/test-depth-draw-never-fix || exit 1
 
 # Add support for webcams on Windows.
