@@ -24,8 +24,7 @@ git merge siliconspecter/viewport-focus || exit 1
 git merge siliconspecter/fix-renderingdevice-build-error || exit 1
 
 @REM Fix depth-draw-never being broken.
-@REM git merge siliconspecter/test-depth-draw-never-fix || exit 1
-git merge siliconspecter/fix-depth-write-being-ignored-when-depth-test-is-disabled || exit 1
+git merge siliconspecter/test-depth-draw-never-fix || exit 1
 
 @REM Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
