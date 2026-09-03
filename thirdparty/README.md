@@ -8,7 +8,7 @@ readability.
 ## accesskit
 
 - Upstream: https://github.com/AccessKit/accesskit-c
-- Version: 0.21.2 (72460cd52d1b24492393cdf54a6f19d2fd63e258, 2026)
+- Version: 0.22.3 (826d672661f9453c8b269ab3946dbcbae6300555, 2026)
 - License: MIT
 
 Files extracted from upstream source:
@@ -511,22 +511,17 @@ Files generated from upstream source:
 ## jolt_physics
 
 - Upstream: https://github.com/jrouwe/JoltPhysics
-- Version: 5.5.0 (23dadd0e603f1b321142d4c74df07fce85064989, 2025)
+- Version: 5.6.0 (e77f175595e64cb44218cc9d9d56fc365ad0e36a, 2026)
 - License: MIT
 
 Files extracted from upstream source:
 
-- All files in `Jolt/`, except `Jolt/Jolt.cmake` and any files dependent on `ENABLE_OBJECT_STREAM`, as seen in `Jolt/Jolt.cmake`
+- All files in `Jolt/`, except `Jolt/Jolt.cmake`, any files dependent on `ENABLE_OBJECT_STREAM` as seen in `Jolt/Jolt.cmake` and the `Jolt/Physics/Hair/`, `Jolt/Compute/` and `Jolt/Shaders/` folders.
 - `LICENSE`
 
 Patches:
 
-- `0001-backport-upstream-commit-ee3725250.patch` (GH-115089)
-- `0002-backport-upstream-commit-bc7f1fb8c.patch` (GH-115305)
-- `0003-backport-upstream-commit-365a15367.patch` (GH-115305)
-- `0004-backport-upstream-commit-e0a6a9a16.patch` (GH-115327)
-- `0005-backport-upstream-commit-449b645.patch` (GH-117194)
-- `0006-backport-upstream-commit-63765d1.patch` (GH-118393)
+- `0001-backport-upstream-commit-63f2f57.patch` (GH-121974)
 
 
 ## libbacktrace
@@ -661,6 +656,7 @@ Patches:
 - `0001-msvc-node-debug-rename.patch` ([GH-75769](https://github.com/godotengine/godot/pull/75769))
 - `0002-msvc-arm64-fpstrict.patch` ([GH-94655](https://github.com/godotengine/godot/pull/94655))
 - `0003-clang-cl-sse2-sse41-avx2.patch` ([GH-92316](https://github.com/godotengine/godot/pull/92316))
+- `0004-emscripten-cppdefine.patch` ([GH-122412](https://github.com/godotengine/godot/pull/122412))
 
 
 ## linuxbsd_headers
@@ -683,7 +679,7 @@ File extracted from upstream source:
 ## mbedtls
 
 - Upstream: https://github.com/Mbed-TLS/mbedtls
-- Version: 4.1.0 (0fe989b6b514192783c469039edd325fd0989806, 2026)
+- Version: 4.1.1 (0a8fda272a5a0abef3b47c91bed37185d5a726b1, 2026)
 - License: Apache 2.0
 
 Update instructions:
@@ -804,16 +800,16 @@ Collection of single-file libraries used in Godot components.
   * License: MIT
   * Patches:
     - `FastNoiseLite-0001-namespace-warnings.patch` ([GH-88526](https://github.com/godotengine/godot/pull/88526))
+- `gamemode_client.h`
+  * Upstream: https://github.com/FeralInteractive/gamemode (`lib/gamemode_client.h`)
+  * Version: 1.8.2
+  * License: BSD-3-Clause
 - `ifaddrs-android.{cc,h}`
   * Upstream: https://chromium.googlesource.com/external/webrtc/stable/talk/+/master/base/ifaddrs-android.h
   * Version: git (5976650443d68ccfadf1dea24999ee459dd2819d, 2013)
   * License: BSD-3-Clause
   * Patches:
     - `ifaddrs-android-0001-complete-struct.patch` ([GH-34101](https://github.com/godotengine/godot/pull/34101))
-- `mikktspace.{c,h}`
-  * Upstream: https://archive.blender.org/wiki/index.php/Dev:Shading/Tangent_Space_Normal_Maps/
-  * Version: 1.0 (2011)
-  * License: zlib
 - `nvapi_minimal.h`
   * Upstream: http://download.nvidia.com/XFree86/nvapi-open-source-sdk
   * Version: R525
@@ -884,6 +880,18 @@ Files extracted from the upstream source:
 Patches:
 
 - `0001-remove-unused-save-features.patch` ([GH-113965](https://github.com/godotengine/godot/issues/113965))
+
+
+## offset_allocator
+
+- Upstream: https://github.com/sebbbi/OffsetAllocator
+- Version: git (3610a7377088b1e8c8f1525f458c96038a4e6fc0, 2026)
+- License: MIT
+
+Files extracted from upstream source:
+
+- `offsetAllocator.cpp`, `offsetAllocator.hpp`
+- `LICENSE`
 
 
 ## openxr
@@ -1099,7 +1107,7 @@ Patches:
 ## tinyexr
 
 - Upstream: https://github.com/syoyo/tinyexr
-- Version: 1.0.13 (4946b5d92e13bcc8102ac2c8efd129596a90bf75, 2026)
+- Version: 3.2.0 (6f470c9ab24bf3992bc512ce07e8ecb00d9bf105, 2026)
 - License: BSD-3-Clause
 
 Files extracted from upstream source:
@@ -1117,7 +1125,7 @@ Patches:
 ## ufbx
 
 - Upstream: https://github.com/ufbx/ufbx
-- Version: 0.21.3 (83bc7cf44f76bc8622de63b809a42b5d557cd733, 2026)
+- Version: 0.23.0 (fcc5d6ba444cfd3eb80677dba5e37e493941abe5, 2026)
 - License: MIT
 
 Files extracted from upstream source:
