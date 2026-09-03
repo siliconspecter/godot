@@ -31,11 +31,6 @@ git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
 git merge shiena/feature/support-windows-camera || exit 1
 
-@REM Add support for decals.
-git remote add bastiaanolij https://github.com/bastiaanolij/godot
-git fetch bastiaanolij || exit 1
-git merge bastiaanolij/add_compatibility_decals || exit 1
-
 @REM Fix a lot of errors in the console.
 git remote add cixil https://github.com/cixil/godot
 git fetch cixil || exit 1
