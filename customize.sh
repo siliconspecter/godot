@@ -18,7 +18,7 @@ GIT_MERGE_AUTOEDIT=no git merge siliconspecter/lightmap-gi-features || exit 1
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/viewport-focus || exit 1
 
 # Fix broken build.
-GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-renderingdevice-build-error || exit 1
+GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-physics-compilation || exit 1
 
 # Fix a number of issues with depth buffer flags.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-depth-write-being-ignored-when-depth-test-is-disabled || exit 1
