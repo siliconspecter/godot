@@ -41,21 +41,31 @@ git merge cixil/avoid-saving-connections-twice || exit 1
 scons || exit 1
 
 @REM Build templates needed to export Virtual Stage.
-scons target=template_release lto=full || exit 1
+set /p SCRIPT_AES256_ENCRYPTION_KEY=<../virtual_stage/godot.gdkey
+scons target=template_release lto=full build_profile="../virtual_stage/engine_compilation_profile.gdbuild" || exit 1
 
 @REM Copy the build templates to where the editor can find them.
 mkdir %APPDATA%\Godot\export_templates\4.8.dev
 copy /b/v/y bin\godot.windows.template_release.x86_64.exe %APPDATA%\Godot\export_templates\4.8.dev\virtual_stage_windows_release_x86_64.exe || exit 1
 copy /b/v/y bin\godot.windows.template_release.x86_64.console.exe %APPDATA%\Godot\export_templates\4.8.dev\virtual_stage_windows_release_x86_64_console.exe || exit 1
 
-@REM Build templates needed to export.
-set /p SCRIPT_AES256_ENCRYPTION_KEY=<../carpathia/godot.gdkey
-scons target=template_release lto=full build_profile="../carpathia/engine_compilation_profile.gdbuild" || exit 1
+@REM Build templates needed to export HOT CROSS BUN.
+set /p SCRIPT_AES256_ENCRYPTION_KEY=<../hot_cross_bun/godot.gdkey
+scons target=template_release lto=full build_profile="../hot_cross_bun/engine_compilation_profile.gdbuild" || exit 1
 
 @REM Copy the build templates to where the editor can find them.
 mkdir %APPDATA%\Godot\export_templates\4.8.dev
-copy /b/v/y bin\godot.windows.template_release.x86_64.exe %APPDATA%\Godot\export_templates\4.8.dev\windows_release_x86_64.exe || exit 1
-copy /b/v/y bin\godot.windows.template_release.x86_64.console.exe %APPDATA%\Godot\export_templates\4.8.dev\windows_release_x86_64_console.exe || exit 1
+copy /b/v/y bin\godot.windows.template_release.x86_64.exe %APPDATA%\Godot\export_templates\4.8.dev\hot_cross_bun_windows_release_x86_64.exe || exit 1
+copy /b/v/y bin\godot.windows.template_release.x86_64.console.exe %APPDATA%\Godot\export_templates\4.8.dev\hot_cross_bun_windows_release_x86_64_console.exe || exit 1
+
+@REM Build templates needed to export Senescence.
+set /p SCRIPT_AES256_ENCRYPTION_KEY=<../senescence/godot.gdkey
+scons target=template_release lto=full build_profile="../senescence/engine_compilation_profile.gdbuild" || exit 1
+
+@REM Copy the build templates to where the editor can find them.
+mkdir %APPDATA%\Godot\export_templates\4.8.dev
+copy /b/v/y bin\godot.windows.template_release.x86_64.exe %APPDATA%\Godot\export_templates\4.8.dev\senescence_windows_release_x86_64.exe || exit 1
+copy /b/v/y bin\godot.windows.template_release.x86_64.console.exe %APPDATA%\Godot\export_templates\4.8.dev\senescence_windows_release_x86_64_console.exe || exit 1
 
 @REM Undo all changes so if we need to make more script changes we don't have the commits we just merged.
 git reset --hard siliconspecter/customizations || exit 1
