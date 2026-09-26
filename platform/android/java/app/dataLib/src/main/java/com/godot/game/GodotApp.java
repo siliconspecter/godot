@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  web_tools_editor_plugin.cpp                                           */
+/*  GodotApp.java                                                         */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
@@ -28,52 +28,65 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
-#include "web_tools_editor_plugin.h"
+package com.godot.game;
 
-#include "core/config/engine.h"
-#include "core/io/dir_access.h"
-#include "core/io/file_access.h"
-#include "core/object/callable_mp.h"
-#include "editor/editor_node.h"
-#include "editor/export/project_zip_packer.h"
+import org.godotengine.godot.Godot;
+import org.godotengine.godot.GodotActivity;
 
-#include <emscripten/emscripten.h>
+import android.os.Bundle;
 
-// Web functions defined in library_godot_editor_tools.js
-extern "C" {
-extern void godot_js_os_download_buffer(const uint8_t *p_buf, int p_buf_size, const char *p_name, const char *p_mime);
-}
+import androidx.activity.EdgeToEdge;
+import androidx.core.splashscreen.SplashScreen;
 
-static void _web_editor_init_callback() {
-	EditorNode::get_singleton()->add_editor_plugin(memnew(WebToolsEditorPlugin));
-}
+/**
+ * Template activity for Godot Android builds.
+ * Feel free to extend and modify this class for your custom logic.
+ */
+public class GodotApp extends GodotActivity {
+	private final Runnable updateWindowAppearance = () -> {
+		Godot godot = getGodot();
+		if (godot != null) {
+			godot.enableImmersiveMode(godot.isInImmersiveMode(), true);
+			godot.enableEdgeToEdge(godot.isInEdgeToEdgeMode(), true);
+			godot.setSystemBarsAppearance();
+		}
+	};
 
-void WebToolsEditorPlugin::initialize() {
-	EditorNode::add_init_callback(_web_editor_init_callback);
-}
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
+		EdgeToEdge.enable(this);
+		super.onCreate(savedInstanceState);
 
-WebToolsEditorPlugin::WebToolsEditorPlugin() {
-	add_tool_menu_item("Download Project Source", callable_mp(this, &WebToolsEditorPlugin::_download_zip));
-}
-
-void WebToolsEditorPlugin::_download_zip() {
-	if (!Engine::get_singleton() || !Engine::get_singleton()->is_editor_hint()) {
-		ERR_PRINT("Downloading the project as a ZIP archive is only available in Editor mode.");
-		return;
-	}
-	const String output_name = ProjectZIPPacker::get_project_zip_safe_name();
-	const String output_path = String("/tmp").path_join(output_name);
-	ProjectZIPPacker::pack_project_zip(output_path);
-
-	{
-		Ref<FileAccess> f = FileAccess::open(output_path, FileAccess::READ);
-		ERR_FAIL_COND_MSG(f.is_null(), "Unable to create ZIP file.");
-		Vector<uint8_t> buf;
-		buf.resize(f->get_length());
-		f->get_buffer(buf.ptrw(), buf.size());
-		godot_js_os_download_buffer(buf.ptr(), buf.size(), output_name.utf8().get_data(), "application/zip");
+		Godot godot = getGodot();
+		if (godot != null && godot.getDisableGodotSplash()) {
+			splashScreen.setKeepOnScreenCondition(() -> godot.getRunStatus() != Godot.RunStatus.STARTED);
+		}
 	}
 
-	// Remove the temporary file since it was sent to the user's native filesystem as a download.
-	DirAccess::remove_file_or_error(output_path);
+	@Override
+	public void onResume() {
+		super.onResume();
+		updateWindowAppearance.run();
+	}
+
+	@Override
+	public void onGodotMainLoopStarted() {
+		super.onGodotMainLoopStarted();
+		runOnUiThread(updateWindowAppearance);
+	}
+
+	@Override
+	public void onGodotForceQuit(Godot instance) {
+		if (!getPackageName().equals("com.godot.game.instrumented")) {
+			// For instrumented builds, we disable force-quitting to allow the instrumented tests to complete
+			// successfully, otherwise they fail when the process crashes.
+			super.onGodotForceQuit(instance);
+		}
+	}
+
+	@Override
+	protected boolean isPiPEnabled() {
+		return true;
+	}
 }

@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  web_tools_editor_plugin.h                                             */
+/*  debugger_helpers.h                                                    */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
@@ -30,16 +30,21 @@
 
 #pragma once
 
-#include "editor/plugins/editor_plugin.h"
+#ifdef DEBUG_ENABLED
+#include "core/input/input_event.h"
 
-class WebToolsEditorPlugin : public EditorPlugin {
-	GDCLASS(WebToolsEditorPlugin, EditorPlugin);
+class Node;
 
-private:
-	void _download_zip();
-
+class DebuggerHelpers {
 public:
-	static void initialize();
+	struct SelectResult {
+		Node *item = nullptr;
+		bool has_order = false;
+		real_t order = 0;
+		_FORCE_INLINE_ bool operator<(const SelectResult &p_rr) const { return p_rr.order < order; }
+	};
 
-	WebToolsEditorPlugin();
+	static bool is_shortcut_pressed(const int p_idx, const HashMap<int, Ref<Shortcut>> &p_shortcuts, bool p_true_if_empty = false);
+	static bool is_shortcut_empty(const int p_idx, const HashMap<int, Ref<Shortcut>> &p_shortcuts);
 };
+#endif // DEBUG_ENABLED
