@@ -784,6 +784,8 @@ void Window::_make_window() {
 	DisplayServer::get_singleton()->window_request_hdr_output(hdr_output_requested, window_id);
 	AccessibilityServer::get_singleton()->set_window_callbacks(window_id, callable_mp(this, &Window::_accessibility_activate), callable_mp(this, &Window::_accessibility_deactivate));
 
+	_update_window_size();
+
 	if (transient_parent) {
 		for (const Window *E : transient_children) {
 			if (E->window_id != DisplayServerEnums::INVALID_WINDOW_ID) {
@@ -1749,7 +1751,7 @@ void Window::_notification(int p_what) {
 					_update_viewport_size(); // Then feed back to the viewport.
 					_update_window_callbacks();
 					// Simulate mouse-enter event when mouse is over the window, since OS event might arrive before setting callbacks.
-					if (!mouse_in_window && Rect2(position, size).has_point(DisplayServer::get_singleton()->mouse_get_position())) {
+					if (!mouse_in_window && DisplayServer::get_singleton()->has_feature(DisplayServerEnums::FEATURE_MOUSE) && Rect2(position, size).has_point(DisplayServer::get_singleton()->mouse_get_position())) {
 						_event_callback(DisplayServerEnums::WINDOW_EVENT_MOUSE_ENTER);
 					}
 					RS::get_singleton()->viewport_set_update_mode(get_viewport_rid(), RSE::VIEWPORT_UPDATE_WHEN_VISIBLE);
