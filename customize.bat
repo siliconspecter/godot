@@ -22,7 +22,7 @@ git merge siliconspecter/viewport-focus || exit 1
 
 @REM Fix broken build.
 git merge siliconspecter/fix-physics-compilation || exit 1
-@REM git merge siliconspecter/fix-text-server-build-error || exit 1
+git merge siliconspecter/fix-text-server-build-error || exit 1
 @REM git merge siliconspecter/fix-texture-streaming-build-error || exit 1
 
 @REM Fix a number of issues with depth buffer flags.
