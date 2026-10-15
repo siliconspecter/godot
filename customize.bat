@@ -22,6 +22,7 @@ git merge siliconspecter/viewport-focus || exit 1
 
 @REM Fix broken build.
 git merge siliconspecter/fix-physics-compilation || exit 1
+git merge siliconspecter/fix-text-server-build-error || exit 1
 
 @REM Fix a number of issues with depth buffer flags.
 git merge siliconspecter/fix-depth-write-being-ignored-when-depth-test-is-disabled || exit 1
