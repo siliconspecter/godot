@@ -43,8 +43,8 @@ scons || exit 1
 #scons target=template_release lto=full build_profile="../virtual_stage/engine_compilation_profile.gdbuild" || exit 1
 
 # Copy the build templates to where the editor can find them.
-mkdir -p ~/.local/share/godot/export_templates/4.8.dev
-cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/virtual_stage_linux_release.x86_64 || exit 1
+# mkdir -p ~/.local/share/godot/export_templates/4.8.dev
+# cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/virtual_stage_linux_release.x86_64 || exit 1
 
 # Build templates needed to export HOT CROSS BUN.
 read -r SCRIPT_AES256_ENCRYPTION_KEY < ../hot_cross_bun/godot.gdkey || exit 1
@@ -59,8 +59,8 @@ cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templa
 #scons target=template_release lto=full build_profile="../senescence/engine_compilation_profile.gdbuild" || exit 1
 
 # Copy the build templates to where the editor can find them.
-mkdir -p ~/.local/share/godot/export_templates/4.8.dev
-cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/senescence_linux_release.x86_64 || exit 1
+# mkdir -p ~/.local/share/godot/export_templates/4.8.dev
+# cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/senescence_linux_release.x86_64 || exit 1
 
 # Undo all changes so if we need to make more script changes we don't have the commits we just merged.
 git reset --hard siliconspecter/customizations || exit 1
