@@ -35,6 +35,9 @@ git remote add cixil https://github.com/cixil/godot
 git fetch cixil || exit 1
 GIT_MERGE_AUTOEDIT=no git merge cixil/avoid-saving-connections-twice || exit 1
 
+# Not doing this can cause build failures.
+scons --clean || exit 1
+
 # Build the editor.
 scons || exit 1
 
