@@ -36,7 +36,6 @@ git fetch cixil || exit 1
 GIT_MERGE_AUTOEDIT=no git merge cixil/avoid-saving-connections-twice || exit 1
 
 # Build the editor.
-echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! A
 scons || exit 1
 
 # Build templates needed to export Virtual Stage.
@@ -48,15 +47,11 @@ scons || exit 1
 # cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/virtual_stage_linux_release.x86_64 || exit 1
 
 # Build templates needed to export HOT CROSS BUN.
-echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! B
 read -r SCRIPT_AES256_ENCRYPTION_KEY < ../hot_cross_bun/godot.gdkey || exit 1
-echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! C
 scons target=template_release lto=full build_profile="../hot_cross_bun/engine_compilation_profile.gdbuild" || exit 1
 
 # Copy the build templates to where the editor can find them.
-echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! D
 mkdir -p ~/.local/share/godot/export_templates/4.8.dev
-echo !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! E
 cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/hot_cross_bun_linux_release.x86_64 || exit 1
 
 # Build templates needed to export Senescence.
