@@ -42,7 +42,7 @@ scons --clean || exit 1
 scons || exit 1
 
 # Build templates needed to export Virtual Stage.
-#read -r SCRIPT_AES256_ENCRYPTION_KEY < ../virtual_stage/godot.gdkey || exit 1
+# export SCRIPT_AES256_ENCRYPTION_KEY="$(cat ../virtual_stage/godot.gdkey)" || exit 1
 #scons target=template_release lto=full build_profile="../virtual_stage/engine_compilation_profile.gdbuild" || exit 1
 
 # Copy the build templates to where the editor can find them.
@@ -50,7 +50,7 @@ scons || exit 1
 # cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/virtual_stage_linux_release.x86_64 || exit 1
 
 # Build templates needed to export HOT CROSS BUN.
-read -r SCRIPT_AES256_ENCRYPTION_KEY < ../hot_cross_bun/godot.gdkey || exit 1
+export SCRIPT_AES256_ENCRYPTION_KEY="$(cat ../hot_cross_bun/godot.gdkey)" || exit 1
 scons target=template_release lto=full build_profile="../hot_cross_bun/engine_compilation_profile.gdbuild" || exit 1
 
 # Copy the build templates to where the editor can find them.
@@ -58,7 +58,7 @@ mkdir -p ~/.local/share/godot/export_templates/4.8.dev
 cp bin/godot.linuxbsd.template_release.x86_64 ~/.local/share/godot/export_templates/4.8.dev/hot_cross_bun_linux_release.x86_64 || exit 1
 
 # Build templates needed to export Senescence.
-#read -r SCRIPT_AES256_ENCRYPTION_KEY < ../senescence/godot.gdkey || exit 1
+#export SCRIPT_AES256_ENCRYPTION_KEY="$(cat ../senescence/godot.gdkey)" || exit 1
 #scons target=template_release lto=full build_profile="../senescence/engine_compilation_profile.gdbuild" || exit 1
 
 # Copy the build templates to where the editor can find them.
