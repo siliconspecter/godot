@@ -29,6 +29,7 @@ GIT_MERGE_AUTOEDIT=no git merge siliconspecter/test-depth-draw-never-fix || exit
 git remote add shiena https://github.com/shiena/godot
 git fetch shiena || exit 1
 GIT_MERGE_AUTOEDIT=no git merge shiena/feature/support-windows-camera || exit 1
+GIT_MERGE_AUTOEDIT=no git merge shiena/shiena:fix/linux_camera_mjpeg_decode || exit 1
 
 # Fix a lot of errors in the console.
 git remote add cixil https://github.com/cixil/godot
