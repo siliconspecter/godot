@@ -28,7 +28,7 @@ GIT_MERGE_AUTOEDIT=no git merge siliconspecter/test-depth-draw-never-fix || exit
 # Fix animation optimization bug.
 git remote add TokageItLab https://github.com/TokageItLab/godot
 git fetch TokageItLab || exit 1
-GIT_MERGE_AUTOEDIT=no git merge TokageItLab:fix-opt-spd-dir || exit 1
+GIT_MERGE_AUTOEDIT=no git merge TokageItLab/fix-opt-spd-dir || exit 1
 
 # Add support for webcams on Windows.
 git remote add shiena https://github.com/shiena/godot
