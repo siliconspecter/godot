@@ -268,7 +268,6 @@ bool ProgressDialog::task_step(const String &p_task, const String &p_state, int 
 }
 
 void ProgressDialog::end_task(const String &p_task) {
-	ERR_FAIL_COND(!tasks.has(p_task));
 	Task &t = tasks[p_task];
 
 	memdelete(t.vb);
