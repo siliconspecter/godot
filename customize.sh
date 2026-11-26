@@ -20,6 +20,9 @@ GIT_MERGE_AUTOEDIT=no git merge siliconspecter/viewport-focus || exit 1
 # Fix broken build.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-physics-compilation || exit 1
 
+# Silence some warnings which aren't for us to fix.
+GIT_MERGE_AUTOEDIT=no git merge siliconspecter/silence-warnings || exit 1
+
 # Fix a number of issues with depth buffer flags.
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/fix-depth-write-being-ignored-when-depth-test-is-disabled || exit 1
 GIT_MERGE_AUTOEDIT=no git merge siliconspecter/test-depth-draw-never-fix || exit 1
