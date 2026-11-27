@@ -1762,7 +1762,7 @@ void LightmapGI::_assign_lightmaps() {
 		}
 	}
 
-	if (!missing_node_paths.is_empty()) {
+	/*if (!missing_node_paths.is_empty()) {
 		String missing_paths_text;
 		if (missing_node_paths.size() <= 3) {
 			missing_paths_text = String(", ").join(missing_node_paths);
@@ -1770,7 +1770,7 @@ void LightmapGI::_assign_lightmaps() {
 			missing_paths_text = vformat("%s and %d more", String(", ").join(missing_node_paths.slice(0, 3)), missing_node_paths.size() - 3);
 		}
 		WARN_PRINT(vformat("%s couldn't find previously baked nodes and needs a rebake (missing nodes: %s).", get_name(), missing_paths_text));
-	}
+	}*/
 }
 
 void LightmapGI::_clear_lightmaps() {
